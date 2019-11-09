@@ -35,6 +35,12 @@ class City
       self.update()
     end
 
+    def self.all
+      sql = 'SELECT * FROM cities'
+      result = SqlRunner.run(sql)
+      return result.map{|x| City.new(x)}
+    end
+
   def self.delete_all()
     sql = 'DELETE FROM cities'
     SqlRunner.run(sql)

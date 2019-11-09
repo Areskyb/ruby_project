@@ -16,7 +16,6 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  float: right;
 }
 
 li a:hover:not(.active) {
@@ -25,8 +24,4 @@ li a:hover:not(.active) {
 
 .active {
   background-color: #4CAF50;
-}
-
-#home {
-  float: right;
 }

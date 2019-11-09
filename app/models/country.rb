@@ -46,6 +46,12 @@ class Country
     return Country.new(SqlRunner.run(sql,values).first)
   end
 
+  def self.all()
+    sql = 'SELECT * FROM countries'
+    result = SqlRunner.run(sql)
+    return result.map{|x| Country.new(x)}
+  end
+
   def cities()
     sql = 'SELECT * FROM cities WHERE country_id = $1'
     values = [@id]
