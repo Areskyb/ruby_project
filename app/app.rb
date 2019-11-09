@@ -9,3 +9,7 @@ require_relative('controllers/new_controller')
 get '/' do
   erb(:index)
 end
+
+get '/delete_all' do
+  Country.delete_all()
+end

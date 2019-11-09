@@ -1,0 +1,9 @@
+<h1><%= @country.name %> </h1>
+
+<div class="cities">
+    <% for city in @cities_in_country %>
+      <div class="city">
+        <p><%= city.name %></p>
+      </div>
+    <% end %>
+</div>

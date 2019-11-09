@@ -1,1 +1,11 @@
 <h1>new country</h1>
+
+<form class="ask-cities" action="/<%=@visited%>/<%=@country.id%>" method="post">
+  <p>please, add some cities in the form</p>
+  <label for="city-1">City:</label>
+  <input type="text" name="name" id ='city'>
+  <label for="visited">Is it Visited or To visit?</label><br>
+  <input type="radio" id= "visited" name="visited" value="true"> Visited <br>
+  <input type="radio" id= "visited" name="visited" value="false"> To visit <br>
+  <input type="submit" value="Add a travel dream">
+</form>

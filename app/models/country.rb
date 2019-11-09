@@ -35,6 +35,13 @@ class Country
     self.update()
   end
 
+  def cities()
+    sql = 'SELECT * FROM cities WHERE country_id = $1'
+    values = [@id]
+    result = SqlRunner.run(sql,values)
+    return result.map{|city| City.new(city)}
+  end
+
   def self.delete_all()
     sql = 'DELETE FROM countries'
     SqlRunner.run(sql)
@@ -52,12 +59,17 @@ class Country
     return result.map{|x| Country.new(x)}
   end
 
-  def cities()
-    sql = 'SELECT * FROM cities WHERE country_id = $1'
-    values = [@id]
-    result = SqlRunner.run(sql,values)
-    return result.map{|city| City.new(city)}
-  end
+def self.find_in_whole_world(name,visited)
+  name = name.capitalize
+  sql = 'SELECT * FROM country WHERE name = $1'
+  values = [name]
+  result = WholeWorldSqlRunner.run(sql,values)[0]
+  result['visited'] = visited
+  return Country.new(result)
+  return result
+
+end
+
 
 
 
