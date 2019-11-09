@@ -2,15 +2,13 @@
 <% for country in @countries %>
 
   <div class="country-deck">
-      <p class="country-deck-name"><%= country.name %></p
-        <iframe width="10" height="10" id="gmap_canvas" src="https://maps.google.com/maps?q=edimburgh&ie=UTF8&iwloc=&output=embed"></iframe>
-
+      <p class="country-deck-name"><%= country.name if country.visited == 'f' %></p
   </div>
 
 <% end %>
 
 
-<form class="form-country" action="/visited" method="post">
+<form class="form-country" action="/to-visited" method="post">
 
 <label for="country_name">Country name: </label>
 <input type="text" name="country-name" id="country_name">

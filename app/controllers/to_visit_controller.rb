@@ -2,6 +2,10 @@ require('sinatra')
 require('sinatra/contrib/all')
 require('pry')
 
-get '/to-visit' do
+require_relative('../models/country')
+also_reload('../models/*')
 
+get '/to-visit' do
+@countries = Country.all()
+erb(:"to_visit/index")
 end
