@@ -8,10 +8,10 @@
 <% end %>
 
 
-<form class="form-country" action="/visited" method="post">
+<form class="form-country" action="/new" method="post">
 
 <label for="country_name">Country name: </label>
-<input type="text" name="country-name" id="country_name">
-
-<input type="submit" value="submit">
+<input type="text" name="name" id="country_name">
+<input type="hidden" name="visited" value="true">
+<input type="submit" value="Add a visited country">
 </form>

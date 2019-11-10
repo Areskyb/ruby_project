@@ -1,17 +1,19 @@
 <h1>Countries to visit</h1>
 <% for country in @countries %>
-
+<a href="/to-visit/<%=country.id%>"><div class="country-deck">
   <div class="country-deck">
       <p class="country-deck-name"><%= country.name if country.visited == 'f' %></p
   </div>
+</a>
 
 <% end %>
 
 
-<form class="form-country" action="/to-visited" method="post">
+<form class="form-country" action="/new" method="post">
 
 <label for="country_name">Country name: </label>
-<input type="text" name="country-name" id="country_name">
-
-<input type="submit" value="submit">
+<input type="text" name="name" id="country_name">
+<input type="hidden" name="visited" value=false>
+<input type="submit" value="Add a new visited country">
+</form>
 </form>

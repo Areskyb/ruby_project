@@ -12,7 +12,6 @@ end
 post '/new' do
 @country = Country.new(params)
 @country.save()
-@cities = Array.new
-@visited = @country.visited ? 'visited' : 'to-visit'
+@visited = @country.visited == 't' ? 'visited' : 'to-visit'
 erb(:"new/index")
 end

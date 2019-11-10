@@ -1,12 +1,15 @@
 <h1><%= @country.name %> </h1>
 
+
 <div class="cities">
     <% for city in @cities_in_country %>
       <div class="city">
         <p><%= city.name %></p>
+        <button type="button" name="button">Delete</button>
       </div>
     <% end %>
 </div>
+
 
 <form class="ask-cities" method="post">
 <label for="city-1">Add City:</label>
