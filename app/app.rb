@@ -12,4 +12,5 @@ end
 
 get '/delete_all' do
   Country.delete_all()
+  redirect to ('/')
 end

@@ -1,3 +1,4 @@
+require('pry')
 require_relative('city')
 require_relative('../db/sql_runner.rb')
 
@@ -10,7 +11,6 @@ class Country
     @visited = options['visited']
     @id = options['id'].to_i if options['id']
   end
-
   def delete()
     sql = 'DELETE FROM countries WHERE id = $1'
     values = [@id]
@@ -59,16 +59,15 @@ class Country
     return result.map{|x| Country.new(x)}
   end
 
-def self.find_in_whole_world(name,visited)
+def self.find_in_whole_world(name)
   name = name.capitalize
   sql = 'SELECT * FROM country WHERE name = $1'
   values = [name]
-  result = WholeWorldSqlRunner.run(sql,values)[0]
-  result['visited'] = visited
-  return Country.new(result)
-  return result
-
+  result = WholeWorldSqlRunner.run(sql,values)
+  return false if result.first == nil
+  return true
 end
+
 
 
 

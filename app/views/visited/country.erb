@@ -2,9 +2,11 @@
 
 <div class="cities">
     <% for city in @cities_in_country %>
+    <a href="/visited/<%=@country.id%>/<%=city.id%>">
       <div class="city">
         <p><%= city.name %></p>
       </div>
+      </a>
     <% end %>
 </div>
 
@@ -16,3 +18,5 @@
 <input type="radio" id= "visited" name="visited" value="false"> To visit <br>
 <input type="submit" value="submit">
 </form>
+
+<iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=<%=@country.name%>&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>

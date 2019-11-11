@@ -26,4 +26,13 @@ post '/to-visit/:id' do
   erb(:"to_visit/country")
 end
 
+
+
 # CITIES
+
+ get '/to-visit/:country_id/:city_id' do
+   @country = Country.find_by_id(params[:country_id].to_i)
+   @city = City.find_by_id(params[:city_id].to_i)
+
+  erb(:"to_visit/city")
+end

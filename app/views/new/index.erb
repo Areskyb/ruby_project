@@ -5,7 +5,14 @@
   <label for="city-1">City:</label>
   <input type="text" name="name" id ='city'>
   <label for="visited">Is it Visited or To visit?</label><br>
+
+  <% if @country.visited == true %>
   <input type="radio" id= "visited" name="visited" value="true"> Visited <br>
   <input type="radio" id= "visited" name="visited" value="false"> To visit <br>
+  <% else %>
+  <input type="hidden" name="visited" value=false>
+  <% end %>
   <input type="submit" value="Add a travel dream">
 </form>
+
+<iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=<%=@country.name%>&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
