@@ -59,8 +59,9 @@ class Country
     return result.map{|x| Country.new(x)}
   end
 
+
 def self.find_in_whole_world(name)
-  name = name.capitalize
+  name = name.split.each{|i| i.capitalize!}.join(' ')
   sql = 'SELECT * FROM country WHERE name = $1'
   values = [name]
   result = WholeWorldSqlRunner.run(sql,values)
