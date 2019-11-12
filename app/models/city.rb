@@ -5,7 +5,7 @@ class City
   attr_reader :id
 
   def initialize(options)
-    @name = options['name'].capitalize
+    @name = options['name'].split.each{|i| i.capitalize!}.join(' ')
     @country_id = options['country_id'].to_i
     @visited = options['visited']
     @id = options['id'].to_i if options['id']

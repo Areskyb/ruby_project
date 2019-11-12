@@ -1,15 +1,16 @@
+DROP TABLE IF EXISTS actions;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS cities ;
 DROP TABLE IF EXISTS countries;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS actions;
---
--- CREATE TABLE users (
---   id SERIAL8 PRIMARY KEY,
---   name VARCHAR(255) UNIQUE NOT NULL,
---   age INT8 NOT NULL,
---   origin_city VARCHAR(255) NOT NULL
---
--- );
+
+
+CREATE TABLE users (
+  id SERIAL8 PRIMARY KEY,
+  name VARCHAR(255) UNIQUE NOT NULL,
+  age INT8 NOT NULL,
+  origin_city VARCHAR(255) NOT NULL
+
+);
 
 CREATE TABLE countries(
   id SERIAL8 PRIMARY KEY,
@@ -24,11 +25,11 @@ CREATE TABLE cities(
   visited BOOLEAN NOT NULL
 );
 
--- CREATE TABLE actions(
---   id SERIAL8 PRIMARY KEY,
---   user_id INT8 REFERENCES users(id),
---   city_id INT8 REFERENCES cities(id),
---   visited BOOLEAN NOT NULL,
---   img VARCHAR(255),
---   description VARCHAR(300),
--- )
+CREATE TABLE actions(
+  id SERIAL8 PRIMARY KEY,
+  user_id INT8 REFERENCES users(id) ,
+  city_id INT8 REFERENCES cities(id) ON DELETE CASCADE,
+  visited BOOLEAN NOT NULL,
+  img VARCHAR(255),
+  description VARCHAR(255)
+)

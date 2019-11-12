@@ -8,6 +8,7 @@ class Country
 
   def initialize(options)
     @name = options['name'].capitalize
+
     @visited = options['visited']
     @id = options['id'].to_i if options['id']
   end
@@ -42,6 +43,13 @@ class Country
     return result.map{|city| City.new(city)}
   end
 
+  def whole_world_info
+    sql = 'SELECT * FROM country WHERE name = $1'
+    values = [@name]
+    result = WholeWorldSqlRunner.run(sql,values)[0]
+    return result
+  end
+
   def self.delete_all()
     sql = 'DELETE FROM countries'
     SqlRunner.run(sql)
@@ -68,9 +76,6 @@ def self.find_in_whole_world(name)
   return false if result.first == nil
   return true
 end
-
-
-
 
 
 end
