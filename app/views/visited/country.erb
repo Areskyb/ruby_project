@@ -29,12 +29,11 @@
 
 <form action="<%=@country.id%>/edit" method="post">
     <input type="hidden" name="name" value="<%=@country.name%>">
-
     <input type="submit" value="Edit country"/>
 </form>
 
 <form class action="<%=@country.id%>/delete" method="get">
-  <button type="button" name="button">Delete country</button>
+  <input type="submit" value="Delete country">
 </form>
 
 

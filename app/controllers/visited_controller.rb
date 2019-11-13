@@ -27,6 +27,19 @@ post '/visited/:id' do
   erb(:"visited/country")
 end
 
+#DELETE
+get '/visited/:country_id/delete' do
+@country = Country.find_by_id(params[:country_id])
+@country.delete
+redirect to('/visited')
+end
+
+get '/visited/:country_id/:city_id/delete' do
+  @city = City.find_by_id(params[:city_id].to_i)
+  @city.delete()
+  redirect to ('/visited')
+end
+
 # CITIES
 
  get '/visited/:country_id/:city_id' do

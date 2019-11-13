@@ -26,6 +26,19 @@ post '/to-visit/:id' do
   erb(:"to_visit/country")
 end
 
+#DELETE
+get '/to-visit/:country_id/delete' do
+@country = Country.find_by_id(params[:country_id])
+@country.delete
+redirect to('/to-visit')
+end
+
+get '/visited/:country_id/:city_id/delete' do
+  @city = City.find_by_id(params[:city_id].to_i)
+  @city.delete()
+  redirect to ('/to-visit')
+end
+
 
 
 # CITIES
@@ -35,4 +48,9 @@ end
    @city = City.find_by_id(params[:city_id].to_i)
 
   erb(:"to_visit/city")
+end
+
+get 'to-visit/:country_id/:city_id/delete' do
+
+  redirect to ('to-visit/#{params[:country_id].to_i}')
 end

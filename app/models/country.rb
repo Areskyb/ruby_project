@@ -12,6 +12,7 @@ class Country
     @visited = options['visited']
     @id = options['id'].to_i if options['id']
   end
+
   def delete()
     sql = 'DELETE FROM countries WHERE id = $1'
     values = [@id]

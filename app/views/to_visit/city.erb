@@ -1,9 +1,8 @@
 <h1><%= @city.name %></h1>
 <p><%= @city.visited %></p>
-<form action="<%=@city.id%>/edit" method="post">
-    <input type="hidden" name="name" value="<%=@city.name%>">
-    <input type="submit" value="Edit country"/>
-    <input type="hidden" name="country_id" value="<%= @city.country_id %>">
+
+<form class action="<%=@city.id%>/delete" method="get">
+  <input type="submit" value="Delete city">
 </form>
 
 <div class="iframe">
