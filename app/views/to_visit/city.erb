@@ -1,6 +1,10 @@
 <h1><%= @city.name %></h1>
-
-<p>description:</p>
+<p><%= @city.visited %></p>
+<form action="<%=@city.id%>/edit" method="post">
+    <input type="hidden" name="name" value="<%=@city.name%>">
+    <input type="submit" value="Edit country"/>
+    <input type="hidden" name="country_id" value="<%= @city.country_id %>">
+</form>
 
 <div class="iframe">
   <p style= 'text-align: center'>

@@ -1,12 +1,11 @@
 <h1><%= @country.name %> </h1>
 
 
-<div class="cities">
+<div class="container">
     <% for city in @cities_in_country %>
-    <a href="/to-visit/<%=@country.id%>/<%=city.id%>">
+    <a class= "box-1" href="/to-visit/<%=@country.id%>/<%=city.id%>">
       <div class="city">
         <p><%= city.name %></p>
-        <button type="button"  name="button">Delete</button>
       </div>
       </a>
     <% end %>
@@ -21,9 +20,17 @@
 </form>
 
 <div class="description">
-  <p>Surface area : <%= @country.whole_world_info['surfacearea'] %> km²</p>
-  <p>Goverment Form : <%= @country.whole_world_info['govermentform'] %></p>
+  <p>Surface: <%= @country.whole_world_info['surfacearea'] %> km2</p>
+  <p>Population: <%= @country.whole_world_info['population'] %> people</p>
+  <p>Year of Independence: <%= @country.whole_world_info['indepyear'] %></p>
+
 </div>
+
+<form action="<%=@country.id%>/edit" method="post">
+    <input type="hidden" name="name" value="<%=@country.name%>">
+    <input type="submit" value="Edit country"
+       />
+</form>
 
 <div class="iframe">
   <p style= 'text-align: center'>

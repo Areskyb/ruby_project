@@ -1,13 +1,15 @@
 <h1>Countries to visit</h1>
+<div class="boxes">
+
 <% for country in @countries %>
 <a href="/to-visit/<%=country.id%>"><div class="country-deck">
   <div class="country-deck">
-      <p class="country-deck-name"><%= country.name if country.visited == 'f' %></p
+      <p class="country-deck-name"><%= country.name if country.visited == 'f' %></p>
   </div>
 </a>
 
 <% end %>
-
+</div>
 
 <form class="form-country" action="/new" method="post">
 

@@ -1,14 +1,15 @@
 <h1><%= @country.name %> </h1>
 
-<div class="cities">
+<div class="container">
     <% for city in @cities_in_country %>
+    <div class="city">
     <a href="/visited/<%=@country.id%>/<%=city.id%>">
-      <div class="city">
         <p><%= city.name %></p>
-      </div>
       </a>
+    </div>
     <% end %>
 </div>
+
 
 <form class="ask-cities" method="post">
 <label for="city-1">Add City:</label>
@@ -18,6 +19,25 @@
 <input type="radio" id= "visited" name="visited" value="false"> To visit <br>
 <input type="submit" value="submit">
 </form>
+
+<div class="description">
+  <p>Surface: <%= @country.whole_world_info['surfacearea'] %> km2</p>
+  <p>Population: <%= @country.whole_world_info['population'] %> people</p>
+  <p>Year of Independence: <%= @country.whole_world_info['indepyear'] %></p>
+
+</div>
+
+<form action="<%=@country.id%>/edit" method="post">
+    <input type="hidden" name="name" value="<%=@country.name%>">
+
+    <input type="submit" value="Edit country"/>
+</form>
+
+<form class action="<%=@country.id%>/delete" method="get">
+  <button type="button" name="button">Delete country</button>
+</form>
+
+
 
 <div class="iframe">
   <p style= 'text-align: center'>

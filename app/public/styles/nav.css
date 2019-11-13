@@ -1,9 +1,24 @@
+.container{
+ display: flex;
+  align-content: center;
+  justify-content: center;
+
+}
+
+}
+.box-1{
+  flex-basis: 27%;
+  align-content: space-around;
+
+}
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #BED6B7;
+  color: black
 }
 
 li {
@@ -24,4 +39,26 @@ li a:hover:not(.active) {
 
 .active {
   background-color: #4CAF50;
+}
+
+.body {
+	font-family: 'Roboto', sans-serif;
+	background-color: : #B4D9FC;
+}
+
+.boxes{
+display: flex;
+flex-direction: row;
+}
+
+.country-deck{
+  display: flex;
+  /* flex-direction: row; */
+}
+
+.red-button{
+  background-color: red;
+}
+section{
+background-color: #B4D9FC
 }

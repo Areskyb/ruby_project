@@ -11,14 +11,29 @@ City.delete_all
 User.delete_all
 
 spain = Country.new('name' => 'Spain', 'visited' => true)
-uk = Country.new('name' => 'uk', 'visited' => true)
+uk = Country.new('name' => 'united kingdom', 'visited' => true)
 france = Country.new('name' => 'france', 'visited' => false)
 andorra = Country.new('name' => 'andorra', 'visited' => true)
+us = Country.new('name' => 'United States', 'visited' => true)
+angola = Country.new('name' => 'Angola', 'visited' => false)
+aruba = Country.new('name' => 'Aruba', 'visited' => true)
+bahamas = Country.new('name' => 'Bahamas', 'visited' => false)
+chile = Country.new('name' => 'chile', 'visited' => true)
+belgium = Country.new('name' => 'Belgium', 'visited' => false)
+dominica= Country.new('name' => 'Dominica', 'visited' => true)
+
 
 andorra.save
 uk.save
 france.save
 spain.save
+us.save
+angola.save
+aruba.save
+bahamas.save
+chile.save
+belgium.save
+dominica.save
 
 seville = City.new('name' => 'Seville', 'visited' => true, 'country_id' => spain.id)
 palma = City.new('name' => 'palma', 'visited' => false, 'country_id' => spain.id)

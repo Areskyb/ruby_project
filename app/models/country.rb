@@ -50,6 +50,12 @@ class Country
     return result
   end
 
+  def delete_cities
+    sql = 'DELETE FROM cities WHERE country_id = $1'
+    values = [@id]
+    SqlRunner.run(sql,values)
+  end
+
   def self.delete_all()
     sql = 'DELETE FROM countries'
     SqlRunner.run(sql)
