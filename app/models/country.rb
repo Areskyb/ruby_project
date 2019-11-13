@@ -7,8 +7,7 @@ class Country
   attr_reader :id
 
   def initialize(options)
-    @name = options['name'].capitalize
-
+    @name = options['name'].split.each{|i| i.capitalize!}.join(' ')
     @visited = options['visited']
     @id = options['id'].to_i if options['id']
   end
@@ -48,6 +47,7 @@ class Country
     sql = 'SELECT * FROM country WHERE name = $1'
     values = [@name]
     result = WholeWorldSqlRunner.run(sql,values)[0]
+
     return result
   end
 
@@ -83,6 +83,8 @@ def self.find_in_whole_world(name)
   return false if result.first == nil
   return true
 end
+
+
 
 
 end

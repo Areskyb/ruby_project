@@ -2,11 +2,16 @@
 <div class="boxes">
 
 <% for country in @countries %>
-<a href="/to-visit/<%=country.id%>"><div class="country-deck">
+<% if country.visited == 'f' %>
+<a href="/to-visit/<%=country.id%>">
   <div class="country-deck">
-      <p class="country-deck-name"><%= country.name if country.visited == 'f' %></p>
+      <p class="country-deck-name">
+        <%= country.name %>
+      </p>
   </div>
 </a>
+<% else %>
+<% end %>
 
 <% end %>
 </div>

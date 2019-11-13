@@ -44,11 +44,15 @@ redirect to ("/visited") if !@country.visited
 redirect to ("/to-visit") if @country.visited
 end
 #CITY EDIT AND DELETE
-get 'visited/:country_id/:city_id/edit' do
-  erb(:"new/edit_city")
+
+get '/visited/:country_id/:city_id/delete' do
+  @city = City.find_by_id(params[:city_id].to_i)
+  @city.delete()
+  redirect to ("/visited/#{params[:country_id]}")
 end
 
-post '/visited/:country_id/:city_id/edit' do
-@city = City.find_by_id(params[:city_id])
-erb(:"new/edit_city")
+get '/to-visit/:country_id/:city_id/delete' do
+  @city = City.find_by_id(params[:city_id].to_i)
+  @city.delete()
+  redirect to ("/to-visit/#{params[:country_id]}")
 end

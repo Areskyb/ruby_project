@@ -52,5 +52,5 @@ end
 
 get 'to-visit/:country_id/:city_id/delete' do
 
-  redirect to ('to-visit/#{params[:country_id].to_i}')
+  redirect to ('to-visit/')
 end

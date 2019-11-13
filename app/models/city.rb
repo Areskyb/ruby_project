@@ -52,4 +52,16 @@ class City
     return City.new(SqlRunner.run(sql,values).first)
   end
 
+  def self.random_city()
+    sql = 'SELECT * FROM city WHERE id = $1'
+    values = [rand(1..4000)]
+    result = WholeWorldSqlRunner.run(sql,values)[0]
+  end
+
+  def self.find_wcountry_by_code(code)
+    sql = 'SELECT * FROM country WHERE code = $1'
+    values = [code]
+    result =WholeWorldSqlRunner.run(sql,values)[0]
+  end
+
 end

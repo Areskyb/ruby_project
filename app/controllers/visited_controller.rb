@@ -34,17 +34,12 @@ get '/visited/:country_id/delete' do
 redirect to('/visited')
 end
 
-get '/visited/:country_id/:city_id/delete' do
-  @city = City.find_by_id(params[:city_id].to_i)
-  @city.delete()
-  redirect to ('/visited')
-end
+
 
 # CITIES
 
  get '/visited/:country_id/:city_id' do
    @country = Country.find_by_id(params[:country_id].to_i)
    @city = City.find_by_id(params[:city_id].to_i)
-
   erb(:"to_visit/city")
 end

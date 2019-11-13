@@ -57,4 +57,5 @@ user1.save
 user1.action('city_id' => seville.id, 'visited' => true, 'images' => ['https://www.bru-system.be/media/cache/resolve/babe_banner_filter/uploads/cover-image/2019-01/banner-sevilla.jpg'], 'description' => 'This is seville, the best of the best of spain')
 
 binding.pry
+return uk
 nil
