@@ -40,8 +40,8 @@ post '/update' do
 @country.visited = params['visited']
 @country.delete_cities if @old_name != params['name']
 @country.update
-redirect to ("/visited") if !@country.visited
-redirect to ("/to-visit") if @country.visited
+redirect to ("/visited") if @country.visited
+redirect to ("/to-visit") if !@country.visited
 end
 #CITY EDIT AND DELETE
 
