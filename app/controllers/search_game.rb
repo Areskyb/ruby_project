@@ -1,10 +1,10 @@
 require('sinatra')
-require('sinatra/contrib/all')
+require('sinatra/contrib/all') if development?
 require('pry')
 
 require_relative('../models/country')
 require_relative('../models/city')
-also_reload('../models/*')
+# also_reload('../models/*')
 
 get '/search-game' do
 @city = City.random_city()
